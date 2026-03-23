@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎧 VKMUSICX MINI APP</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1 class="logo">VKMUSICX MINI APP</h1>
+  <p>🎧 8D • Bass Boost • Premium</p>
+
+  <div class="top-actions">
+    <button class="btn btn-primary" onclick="openBot()">🚀 Открыть бота</button>
+    <button class="btn btn-premium" onclick="showPremium()">⭐ Купить PRO</button>
+  </div>
+
+  <div class="top-actions">
+    <button class="btn btn-primary" onclick="playDemo('8d')">🎧 8D Demo</button>
+    <button class="btn btn-primary" onclick="playDemo('bass')">💥 Bass Boost Demo</button>
+  </div>
+
+  <div class="badge-pro" id="proStatus">Статус: FREE</div>
+</header>
+
+<section class="pricing">
+  <div class="price-card">
+    <h3>1 МЕСЯЦ</h3>
+    <div class="price">50 ₽</div>
+    <p>Доступ ко всем трекам</p>
+    <button class="btn btn-premium" onclick="pay('1 месяц')">Оплатить</button>
+  </div>
+  <div class="price-card">
+    <h3>3 МЕСЯЦА</h3>
+    <div class="price">100 ₽</div>
+    <p>8D + Bass Boost</p>
+    <button class="btn btn-premium" onclick="pay('3 месяца')">Оплатить</button>
+  </div>
+  <div class="price-card">
+    <h3>6 МЕСЯЦЕВ</h3>
+    <div class="price">150 ₽</div>
+    <p>Полный Premium</p>
+    <button class="btn btn-premium" onclick="pay('6 месяцев')">Оплатить</button>
+  </div>
+</section>
+
+<section class="qr-section">
+  <h2>Оплата через Сбербанк</h2>
+  <p>Отсканируйте QR или нажмите кнопку</p>
+  <img class="qr-img" src="image/jpeg;base64,PUT_BASE64_QR_HERE" alt="QR для оплаты" />
+  <br><br>
+  <button class="btn btn-primary" onclick="pay('manual')">💳 Оплатить через Сбербанк</button>
+  <button class="btn btn-premium" onclick="paid()">✅ Я оплатил</button>
+</section>
+
+<section class="section">
+  <input
+    type="text"
+    class="search"
+    id="searchInput"
+    placeholder="🔎 Search tracks..."
+    onkeyup="searchMusic()"
+  >
+  <div class="music-grid" id="musicGrid"></div>
+</section>
+
+<div class="player">
+  <div class="player-top">
+    <span id="nowPlaying">No track playing</span>
+    <span id="playType">Source: DEMO</span>
+  </div>
+  <iframe id="mainPlayer" height="80" frameborder="0" allow="autoplay"></iframe>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
